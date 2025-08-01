@@ -46,19 +46,7 @@
 
     <section id="skills" class="content-section">
       <h2>Skills & Strengths</h2>
-      <ul>
-        <li>Effective verbal and written communication</li>
-        <li>Public speaking and content writing</li>
-        <li>Team collaboration and leadership</li>
-        <li>Customer service etiquette and interpersonal skills</li>
-        <li>Proficient in MS Office, email communication, and internet navigation</li>
-        <li>Social media management and basic content creation</li>
-        <li>Typing proficiency and structured documentation</li>
-        <li>Basic understanding of HTML and digital tools</li>
-        <li>Strong organizational and time management abilities</li>
-        <li>Quick adaptability and a solution-oriented mindset</li>
-        <li>Poetry and creative expression through shayari</li>
-      </ul>
+
       <div id="skill-bars-container"></div>
     </section>
 
@@ -73,18 +61,30 @@
 
     <section id="education" class="content-section">
       <h2>Education</h2>
-      <ul>
-        <li>
-          <strong>R.B. Harris Junior College (Mumbai)</strong><br />
-          HSC (12th Science - PCMB) — Appearing (2025)<br />
-          Score: 56%
-        </li>
-        <li>
-          <strong>Z.B. Zakaria English High School (Mumbai)</strong><br />
-          SSC — 2022<br />
-          Score: 83%
-        </li>
-      </ul>
+      <div class="education-cards">
+        <div class="edu-card">
+          <button class="report-btn left" aria-label="Open HSC Report Card" onclick="openReport('hsc')">📄</button>
+          <h3>
+            R.B. Harris Junior College (Mumbai)
+          </h3>
+          <p class="edu-level">HSC (12th Science - PCMB) — Appearing (2025)</p>
+          <div class="score-bar">
+            <div class="score-fill" data-score="56" data-id="hsc"></div>
+            <span class="score-text">56%</span>
+          </div>
+        </div>
+        <div class="edu-card">
+          <button class="report-btn right" aria-label="Open SSC Report Card" onclick="openReport('ssc')">📄</button>
+          <h3>
+            Z.B. Zakaria English High School (Mumbai)
+          </h3>
+          <p class="edu-level">SSC — 2022</p>
+          <div class="score-bar">
+            <div class="score-fill" data-score="83" data-id="ssc"></div>
+            <span class="score-text">83%</span>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section id="projects" class="content-section">

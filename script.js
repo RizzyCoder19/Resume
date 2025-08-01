@@ -54,25 +54,33 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Animate skill bars
- const skillBarsData = [
-  { label: 'Communication', percent: 95 },
-  { label: 'Public Speaking', percent: 90 },
-  { label: 'Content Writing', percent: 80 },
-  { label: 'Team Leadership', percent: 95 },
-  { label: 'Customer Service', percent: 90 },
-  { label: 'MS Office & Email', percent: 90 },
-  { label: 'Social Media', percent: 80 },
-  { label: 'Typing & Docs', percent: 90 },
-  { label: 'HTML', percent: 98 },
-  { label: 'Time Management', percent: 92 },
-  { label: 'Adaptability', percent: 88 },
-  { label: 'Creative Writing And Shayari', percent: 95 }
-];
+  const skillBarsData = [
+    { label: 'Communication', percent: 95 },
+    { label: 'Public Speaking', percent: 90 },
+    { label: 'Content Writing', percent: 80 },
+    { label: 'Team Leadership', percent: 95 },
+    { label: 'Customer Service', percent: 90 },
+    { label: 'MS Office & Email', percent: 90 },
+    { label: 'Social Media', percent: 80 },
+    { label: 'Typing & Docs', percent: 90 },
+    { label: 'HTML', percent: 98 },
+    { label: 'Time Management', percent: 92 },
+    { label: 'Adaptability', percent: 88 },
+    { label: 'Creative Writing And Shayari', percent: 95 }
+  ];
 
+  const educationScoresData = [
+    { id: 'hsc', percent: 56 },
+    { id: 'ssc', percent: 83 }
+  ];
 
   const skillsSection = document.getElementById('skills');
   if (skillsSection) {
-   skillsSection.innerHTML = '<h2>Skills & Strengths</h2>';
+    const skillBarsContainer = document.getElementById('skill-bars-container');
+    if (!skillBarsContainer) {
+      console.error('Skill bars container not found');
+      return;
+    }
     skillBarsData.forEach(skill => {
       const barContainer = document.createElement('div');
       barContainer.classList.add('skill-bar');
@@ -84,9 +92,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const label = document.createElement('span');
       label.classList.add('skill-label');
       label.textContent = skill.label;
-barContainer.appendChild(barFill);
-barContainer.appendChild(label);
-skillsSection.appendChild(barContainer);
+
+      barContainer.appendChild(barFill);
+      barContainer.appendChild(label);
+      skillBarsContainer.appendChild(barContainer);
 
       // Animate fill on scroll
       const fillObserver = new IntersectionObserver((entries, obs) => {
@@ -101,6 +110,22 @@ skillsSection.appendChild(barContainer);
       fillObserver.observe(barContainer);
     });
   }
+
+  // Animate education score bars
+  educationScoresData.forEach(scoreData => {
+    const scoreFill = document.querySelector(`.score-fill[data-score][data-id="${scoreData.id}"]`) || document.querySelector(`.score-fill[data-score]`);
+    if (scoreFill) {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            scoreFill.style.width = scoreData.percent + '%';
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      observer.observe(scoreFill);
+    }
+  });
 
   // Background floating particles effect
   const background = document.getElementById('background');
@@ -156,3 +181,12 @@ skillsSection.appendChild(barContainer);
 
   animate();
 });
+
+// Function to open report cards (placeholder implementation)
+function openReport(type) {
+  if (type === 'hsc') {
+    window.open('images/12th.jpg', '_blank');
+  } else if (type === 'ssc') {
+    window.open('images/10th.jpg', '_blank');
+  }
+}
