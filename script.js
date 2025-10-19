@@ -63,7 +63,8 @@ document.addEventListener('DOMContentLoaded', () => {
     { label: 'MS Office & Email', percent: 90 },
     { label: 'Social Media', percent: 80 },
     { label: 'Typing & Docs', percent: 90 },
-    { label: 'HTML', percent: 98 },
+    { label: 'Programming', percent: 98 },
+    { label: 'Web Development', percent: 90 },
     { label: 'Time Management', percent: 92 },
     { label: 'Adaptability', percent: 88 },
     { label: 'Creative Writing And Shayari', percent: 95 }
@@ -190,3 +191,4 @@ function openReport(type) {
     window.open('images/10th.jpg', '_blank');
   }
 }
+
